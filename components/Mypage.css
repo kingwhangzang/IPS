@@ -1,0 +1,129 @@
+.dashboard-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: #FAE951;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 9999;
+  font-size: 20pt;
+  font-weight: bold;
+  color: #010D82;
+  height: 70px;
+}
+
+.sook{
+  position:relative;
+  top : -9px;
+  font-size: 35pt;
+  color: #279732;
+}
+
+nav ul {
+  position: absolute;
+  top: 2px;
+  right: 0;
+  left: 0;
+  display: flex;
+  list-style: none;
+}
+
+nav ul li + li {
+  margin-left: 20px;
+}
+
+nav a {
+  color: #333;
+  text-decoration: none;
+}
+
+.active {
+  color:#F0656B;
+  font-weight: bold;
+}
+
+.dashboard-nav button{
+  font-size: 20pt;
+  background-color:#279732;
+  color:#FAE951;
+  border-radius: 0.5cm;
+}
+
+.mypage-container {
+  display: flex;
+  align-items: flex-start;
+}
+
+.profile-pic {
+  margin-right: 20px;
+}
+
+.user-info {
+  flex-grow: 1;
+}
+
+.userinfochange {
+  position: absolute;
+  width: 500px;
+  height: 450px;
+  top: 110px;
+  right: 50px;
+  background-color: #ffffff;
+  border: 5px solid #010D82;
+  padding: 50px;
+  color:#333;
+  border-radius: 0.5cm;
+  font-weight: bold;
+  font-size: 15pt;
+}
+
+.userinfo{
+  position: absolute;
+  width: 600px;
+  height: 450px;
+  top: 110px;
+  left: 50px;
+  background-color: #ffffff;
+  border: 5px solid #010D82;
+  padding: 50px;
+  color:#010D82;
+  border-radius: 0.5cm;
+  font-weight: bold;
+  font-size: 15pt;
+}
+.userinfo h2{
+  color:#010D82;
+  border-radius: 0.5cm;
+  padding: 10px;
+
+}
+.userinfochange h2{
+  color:#010D82;
+  top: 100px;
+  border-radius: 0.5cm;
+  padding: 10px;
+}
+.profileimage{
+  position: absolute;
+  top: 50px;
+  left: 50px;
+}
+
+.userinfochange button{
+  font-weight: bold;
+  background-color: #FAE951;
+  color:#010D82;
+  border-radius: 0.2cm;
+}
+
+.userinfochange label{
+  color:#010D82
+}
+
+.zandiimage{
+  position: absolute;
+  top: 370px;
+}

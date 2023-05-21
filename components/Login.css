@@ -1,0 +1,78 @@
+/* Login.css */
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-image: url('/Users/serapark/Desktop/공부/React/ips/ips/public/forest.png');
+    background-size: cover;
+  }
+  
+  .heading {
+    padding-bottom: 3rem;
+    color:#010D82 ;
+    font-size: 50pt;
+  }
+  
+  .form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .logincard {
+    font-size: 15pt;
+    font-weight: bold;
+    color:#010D82 ;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .loginpassword {
+    font-size: 15pt;
+    font-weight: bold;
+    color:#010D82 ;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .loginperson {
+    font-size: 15pt;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+  }
+  
+  .label {
+    margin-right: 2rem;
+    color: #010D82;
+  }
+  
+  .input {
+    padding: 1rem;
+    background-color:#F2F2F2;
+    border-radius: 0.5px;
+  }
+
+  .button {
+    font-size: 20pt;
+    font-weight: bold;
+    padding: 0.5rem;
+    background-color: #FAE951;
+    color: #010D82;
+    border: none;
+    border-radius: 0.25rem;
+    cursor: pointer;
+  }
+  
+  .boyimage {
+    position: absolute;
+    top: 130px;
+    right: 450px;
+    width: 150px; 
+    height: auto; 
+  }

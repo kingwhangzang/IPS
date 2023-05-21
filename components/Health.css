@@ -1,0 +1,141 @@
+.dashboard-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    background-color: #FAE951;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 9999;
+    font-size: 20pt;
+    font-weight: bold;
+    color: #010D82;
+    height: 70px;
+  }
+
+  .sook{
+    position:relative;
+    top : -9px;
+    font-size: 35pt;
+    color: #279732;
+  }
+  
+  nav ul {
+    position: absolute;
+    top: 2px;
+    right: 0;
+    left: 0;
+    display: flex;
+    list-style: none;
+  }
+  
+  nav ul li + li {
+    margin-left: 20px;
+  }
+  
+  nav a {
+    color: #333;
+    text-decoration: none;
+  }
+  
+  .active {
+    color:#010D82;
+    font-weight: bold;
+  }
+
+  .dashboard-nav button{
+    font-size: 20pt;
+    background-color:#279732;
+    color:#FAE951;
+    border-radius: 0.5cm;
+}
+
+  .calorie{
+    position: absolute;
+    width: 500px;
+    height: 500px;
+    top: 100px;
+    left: 50px;
+    background-color: #ffffff;
+    border: 10px solid #f7890bb9;
+    border-radius: 0.5cm;
+    padding: 50px;
+  }
+
+  .BMI{
+        position: absolute;
+        width: 500px;
+        top: 100px;
+        right: 70px;
+        background-color: #ffffff;
+        border: 10px solid #f7890bb9;
+        padding: 50px;
+        border-radius: 0.5cm;
+      }
+
+.foodimage{
+  position: absolute;
+  top: 60px;
+  left: 10px;
+  width: min-content;
+}
+
+.healthimage{
+  position: absolute;
+  top: 60px;
+  right: 500px;
+}
+
+.calorie h1{
+  position: relative;
+  left: 50px;
+  top: 10px;
+  border-radius: 1cm;
+  width: 210px;
+  background-color: limegreen;
+  color:#010D82;
+  
+}
+
+.calorie label{
+  font-weight: bold;
+}
+
+.calorie button{
+  font-weight: bold;
+  background-color: #FAE951;
+  color:#010D82;
+  border-radius: 0.2cm;
+}
+
+.BMI h1{
+  position: relative;
+  border-radius: 1cm;
+  top: 10px;
+  width: 180px;
+  left: 70px;
+  background-color: limegreen;
+  color:#010D82;
+
+}
+
+.BMI label{
+  font-weight: bold;
+}
+
+.BMI button{
+  font-weight: bold;
+  background-color: #FAE951;
+  color:#010D82;
+  border-radius: 0.2cm;
+}
+
+.bmiimage{
+  position: absolute;
+  height: 350px;
+  width: 600px;
+  top: 490px;
+  right: 80px;
+}
