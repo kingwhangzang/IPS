@@ -69,7 +69,7 @@ kakao.maps.event.addListener(marker, 'click', function() {
 // 주소-좌표 변환 객체를 생성합니다
 var geocoder = new daum.maps.services.Geocoder();
 var myAddress = [        ];
-// 위 리스트 내부에 엑셀 파일의 주소를 불러와야 합니다.
+// 위 리스트 내부에 엑셀 파일의 가맹점 주소를 문자열 나열로 불러와야 합니다.
 
 function myMarker(number, address) {
 // 주소로 좌표를 검색합니다
