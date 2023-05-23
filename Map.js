@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink } from 'react-router-dom';
 import ReviewAndInfo from './ReviewAndInfo';
-import Papa from 'papaparse';
+// eslint-disable-next-line no-unused-vars
+import StarRating from './StarRating';
 
 const { kakao } = window;
 
@@ -13,68 +14,37 @@ function Map() {
   };
 
   useEffect(() => {
-    const parseCSVFile = async () => {
-      const response = await fetch(process.env.PUBLIC_URL + '/서울 아동급식카드 가맹점 정보.csv');
-      const csvData = await response.text();
-      const markers = [];
-
-      Papa.parse(csvData, {
-        header: true,
-        dynamicTyping: true,
-        complete: (results) => {
-          const { data } = results;
-          data.forEach(async (row) => {
-            const { 도로명주소, 가맹점명칭 } = row;
-            const geocoder = new kakao.maps.services.Geocoder();
-            await geocoder.addressSearch(도로명주소, (result, status) => {
-              if (status === kakao.maps.services.Status.OK) {
-                const lat = result[0].y; // 위도
-                const lng = result[0].x; // 경도
-                markers.push({ lat, lng, 도로명주소, 가맹점명칭 });
-              }
-            });
-          });
-      
-          markers.forEach((markerData) => {
-            const { lat, lng, 가맹점명칭 } = markerData;
-            const markerPosition = new kakao.maps.LatLng(lat, lng);
-            const marker = new kakao.maps.Marker({
-              position: markerPosition,
-            });
-      
-            // 마커 클릭 이벤트 처리
-            kakao.maps.event.addListener(marker, 'click', () => {
-              setSelectedStore({
-                name: 가맹점명칭,
-                review: '리뷰 내용',
-                info1: '대표메뉴',
-                info2: '전화 번호 : ',
-                info3: '영업 시간 : ',
-              });
-            });
-      
-            marker.setMap(map);
-          });
-        },
-      });
-      
-    };
-
-    const container = document.getElementById('map'); //지도를 표시할 영역
-    const options = { //중심위치와, 확대 수준
+    const container = document.getElementById('map');
+    const options = {
       center: new kakao.maps.LatLng(37.5479, 126.9716),
-      level: 5,
+      level: 5
     };
-    const map = new kakao.maps.Map(container, options); //지도를 표시
+    const map = new kakao.maps.Map(container, options);
 
-    const addMarkersToMap = async () => {
-      await parseCSVFile();
-    }; //마커를 지도에 추가
+    const markerPosition = [
+      { title: "우돈갈비", lat: 37.5479, lng: 126.9716, review: "맛있어요!", info1: "갈비", info2: "010-1234-5678", info3: "3.5" },
+      { title: "갑돌네", lat: 37.5502, lng: 126.9697, review: "분위기 좋아요!", info1: "돌솥비빔밥", info2: "010-9876-5432", info3: "4.2" },
+      { title: "청파 생고기", lat: 37.5498, lng: 126.9692, review: "서비스도 좋고 맛도 좋아요!", info1: "생고기", info2: "010-5555-5555", info3: "4.8" },
+      // 다른 가맹점 리뷰 정보들...
+    ];
+
+    const addMarkersToMap = () => {
+      markerPosition.forEach(markerData => {
+        const marker = new kakao.maps.Marker({
+          position: new kakao.maps.LatLng(markerData.lat, markerData.lng),
+        });
+
+        kakao.maps.event.addListener(marker, 'click', () => {
+          setSelectedStore(markerData);
+        });
+
+        marker.setMap(map);
+      });
+    };
 
     addMarkersToMap();
   }, []);
 
-  //상단 구현
   return (
     <div>
       <nav className="dashboard-nav">
@@ -109,21 +79,19 @@ function Map() {
         </ul>
       </nav>
 
-
-      <div id="map" style={{ width: '2000px', height: '700px' }}></div>
+      <div id="map" style={{ width: "2000px", height: "500px" }}></div>
 
       {selectedStore && (
         <ReviewAndInfo
-          name={selectedStore.name}
+          title={selectedStore.title}
           review={selectedStore.review}
           info1={selectedStore.info1}
           info2={selectedStore.info2}
-          nfo3={selectedStore.info3}
-          />
-        )}
-      </div>
-    );
-  }
-  
-  export default Map;
- 
+          info3={selectedStore.info3}
+        />
+      )}
+    </div>
+  );
+}
+
+export default Map;
